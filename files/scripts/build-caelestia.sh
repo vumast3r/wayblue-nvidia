@@ -6,13 +6,14 @@ echo "Starting Caelestia Shell pre-requisites..."
 # 1. Install Pywal globally using pipx
 pipx install pywal --global
 
-# 2. Compile libcava from source
-git clone https://github.com/karlstav/cava.git /tmp/cava
+echo "Compiling libcava shared library from source..."
+
+# 2. Compile libcava from the specialized shared library fork
+git clone https://github.com/LukashonakV/cava.git /tmp/cava
 cd /tmp/cava
-./autogen.sh
-./configure --prefix=/usr
-make
-make install
+meson setup -Dcava_font=false --prefix=/usr build
+meson compile -C build
+meson install -C build
 
 echo "Compiling Quickshell..."
 
