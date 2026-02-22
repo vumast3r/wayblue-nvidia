@@ -8,8 +8,8 @@ image-version: 44
 modules:
   - type: yum-repos
     repos:
-      - copr:errornointernet/quickshell
-      - copr:purian23/material-symbols-fonts
+      - https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-%OS_VERSION%/errornointernet-quickshell-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/purian23/material-symbols-fonts/repo/fedora-%OS_VERSION%/purian23-material-symbols-fonts-fedora-%OS_VERSION%.repo
 
   - type: rpm-ostree
     install:
