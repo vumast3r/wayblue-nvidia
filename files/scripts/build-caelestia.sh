@@ -4,7 +4,7 @@ set -euo pipefail
 echo "Starting Caelestia Shell pre-requisites..."
 
 # 1. Install Pywal globally using pipx
-pipx install pywal --global
+pip install pywal --prefix=/usr --break-system-packages
 
 echo "Compiling libcava shared library from source..."
 

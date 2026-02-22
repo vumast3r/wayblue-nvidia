@@ -34,7 +34,7 @@ modules:
         - cmake
         - ninja-build
         - gcc-c++
-        - pipx
+        - python-pip
         - autoconf
         - automake
         - libtool
