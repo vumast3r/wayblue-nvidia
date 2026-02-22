@@ -3,18 +3,17 @@ name: wayblue-nvidia
 description: Custom Hyprland image with Caelestia Shell and NVIDIA support
 
 base-image: ghcr.io/wayblueorg/hyprland-nvidia
-image-version: 44 # Fedora 44 has the best NTSYNC support for your 5080
+image-version: 44
 
 modules:
   - type: yum-repos
     repos:
-      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-%OS_VERSION%/errornointernet-quickshell-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/purian23/material-symbols-fonts/repo/fedora-%OS_VERSION%/purian23-material-symbols-fonts-fedora-%OS_VERSION%.repo
+      - copr:errornointernet/quickshell
+      - copr:purian23/material-symbols-fonts
 
   - type: rpm-ostree
     install:
-      # Caelestia Shell Dependencies (Corrected Names)
+      # Caelestia Shell Dependencies
       - quickshell
       - brightnessctl
       - ddcutil
@@ -26,12 +25,12 @@ modules:
       - qt6-qt5compat
       - qt6-qtsvg
       - qt6-qtmultimedia
-      # System Essentials
+      # System Essentials      
       - nvtop
       - fastfetch
-      - qalculate      # Corrected from libqalcuate
+      - qalculate
       - python3-pywal
-      - material-symbols-fonts # Corrected name from the COPR
+      - material-symbols-fonts
       # Hard-to-find Caelestia CLI (Required for the video's functionality)
       - playerctl
       - grim
@@ -49,4 +48,3 @@ modules:
   - type: script
     scripts:
       - build-caelestia.sh
-
