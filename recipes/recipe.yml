@@ -12,7 +12,7 @@ modules:
         - errornointernet/quickshell
         - purian23/material-symbols-fonts
 
-- type: rpm-ostree
+  - type: rpm-ostree
     install:
       # Caelestia Shell Dependencies
       - quickshell-git
