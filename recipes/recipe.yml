@@ -51,6 +51,8 @@ modules:
         - cli11-devel
         - spirv-tools
         - pkgconf-pkg-config
+        - libdrm-devel
+        - mesa-libgbm-devel
 
   - type: default-flatpaks
     configurations:
