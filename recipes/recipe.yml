@@ -3,7 +3,7 @@ name: wayblue-nvidia
 description: Custom Hyprland image with Caelestia Shell and NVIDIA support
 
 base-image: ghcr.io/wayblueorg/hyprland-nvidia
-image-version: 44
+image-version: 43
 
 modules:
   - type: dnf
