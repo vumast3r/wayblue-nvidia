@@ -1,4 +1,4 @@
-# recipes/wayblue-nvidia.yml
+# recipes/recipe.yml
 name: wayblue-nvidia
 description: Custom Hyprland image with Caelestia Shell and NVIDIA support
 
@@ -38,16 +38,15 @@ modules:
       - slurp
 
   - type: default-flatpaks
-    notify: true
-    system:
-      install:
-        - com.discordapp.Discord
-        - com.valvesoftware.Steam
-        - org.mozilla.firefox
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - com.discordapp.Discord
+          - com.valvesoftware.Steam
+          - org.mozilla.firefox
 
   - type: script
     scripts:
       - build-caelestia.sh
 
-# This belongs in your GitHub Action (.github/workflows/build.yml), NOT in recipe.yml
-# cosign_private_key: ${{ secrets.SIGNING_SECRET }}
