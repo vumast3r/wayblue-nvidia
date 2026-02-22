@@ -23,7 +23,21 @@ jobs:
       - name: Build and Sign Image
         uses: blue-build/github-action@v1.1
         with:
-          recipe: recipe.yml # Point to your recipe file
+          recipe: recipe.yml # The action searches recipes/ and config/ automatically
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
+# Add this to the end of your .github/workflows/build.yml
+    needs: bluebuild # Wait for the build job to finish
+    runs-on: ubuntu-latest
+    if: always() 
+    steps:
+      - name: Discord notification
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ needs.bluebuild.result }}
+          title: "Build wayblue-nvidia"
+          description: "Fedora 44 build for RTX 5080 and Ryzen 9 9950X3D"
+          color: 0x0099ff
+          username: "GitHub Actions"
