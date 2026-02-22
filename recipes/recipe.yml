@@ -9,11 +9,10 @@ modules:
   - type: dnf
     repos:
       copr:
-        - errornointernet/quickshell
         - purian23/material-symbols-fonts
     install:
       packages:
-        # Caelestia Shell Dependencies
+        # Caelestia Shell Runtime Dependencies
         - brightnessctl
         - ddcutil
         - network-manager-applet
@@ -23,17 +22,15 @@ modules:
         - qt6-qt5compat
         - qt6-qtsvg
         - qt6-qtmultimedia
-        - qt6-qtwayland-devel # Added for manual quickshell compilation
-        - qt6-qtbase-devel # Added for manual quickshell compilation
         # System Essentials
-        - nvtop # for NVIDIA drivers
+        - nvtop 
         - fastfetch
         - qalculate
         - material-symbols-fonts
-        - playerctl # here
+        - playerctl 
         - grim
         - slurp
-        # Compilation Tools
+        # Compilation Tools & Libraries
         - cmake
         - ninja-build
         - gcc-c++
@@ -44,7 +41,16 @@ modules:
         - fftw-devel
         - alsa-lib-devel
         - iniparser-devel
-        - golang # Added for manual quickshell compilation
+        - qt6-qtbase-devel
+        - qt6-qtdeclarative-devel
+        - qt6-qtwayland-devel
+        - qt6-qtsvg-devel
+        - qt6-qtshadertools-devel
+        - wayland-devel
+        - wayland-protocols-devel
+        - cli11-devel
+        - spirv-tools
+        - pkgconf-pkg-config
 
   - type: default-flatpaks
     configurations:

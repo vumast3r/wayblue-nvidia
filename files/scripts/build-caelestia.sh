@@ -6,7 +6,7 @@ echo "Starting Caelestia Shell pre-requisites..."
 # 1. Install Pywal globally using pipx
 pipx install pywal --global
 
-# 2. Compile libcava from source (Since Fedora doesn't provide it)
+# 2. Compile libcava from source
 git clone https://github.com/karlstav/cava.git /tmp/cava
 cd /tmp/cava
 ./autogen.sh
@@ -16,11 +16,14 @@ make install
 
 echo "Compiling Quickshell..."
 
-# 3. Clone and compile Quickshell (master branch)
-git clone https://github.com/outfoxxed/quickshell.git /tmp/quickshell
+# 3. Clone and compile Quickshell from the CORRECT Forgejo server
+git clone https://git.outfoxxed.me/quickshell/quickshell.git /tmp/quickshell
 cd /tmp/quickshell
+# Disable jemalloc and the crash reporter to bypass extra dependencies
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=/usr
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DUSE_JEMALLOC=OFF \
+      -DCRASH_REPORTER=OFF
 cmake --build build
 cmake --install build
 
