@@ -6,10 +6,11 @@ base-image: ghcr.io/wayblueorg/hyprland-nvidia
 image-version: 44
 
 modules:
-  - type: yum-repos
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell/repo/fedora-%OS_VERSION%/errornointernet-quickshell-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/purian23/material-symbols-fonts/repo/fedora-%OS_VERSION%/purian23-material-symbols-fonts-fedora-%OS_VERSION%.repo
+      copr:
+        - errornointernet/quickshell
+        - purian23/material-symbols-fonts
 
   - type: rpm-ostree
     install:
