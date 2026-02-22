@@ -12,30 +12,37 @@ modules:
         - errornointernet/quickshell
         - purian23/material-symbols-fonts
 
-  - type: rpm-ostree
+- type: rpm-ostree
     install:
       # Caelestia Shell Dependencies
-      - quickshell
+      - quickshell-git
       - brightnessctl
       - ddcutil
       - network-manager-applet
-      - libcava
       - lm_sensors
       - fish
       - qt6-qtdeclarative
       - qt6-qt5compat
       - qt6-qtsvg
       - qt6-qtmultimedia
-      # System Essentials      
+      # System Essentials
       - nvtop
       - fastfetch
       - qalculate
-      - python3-pywal
       - material-symbols-fonts
-      # Hard-to-find Caelestia CLI (Required for the video's functionality)
       - playerctl
       - grim
       - slurp
+      # Compilation Tools (NEW)
+      - cmake
+      - ninja-build
+      - gcc-c++
+      - pipx         # Replaces python3-pywal
+      - autoconf     # Needed to build libcava
+      - automake     # Needed to build libcava
+      - libtool      # Needed to build libcava
+      - fftw-devel   # Needed to build libcava
+      - alsa-lib-devel # Needed to build libcava
 
   - type: default-flatpaks
     configurations:
