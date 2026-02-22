@@ -14,7 +14,6 @@ modules:
     install:
       packages:
         # Caelestia Shell Dependencies
-        - quickshell-git
         - brightnessctl
         - ddcutil
         - network-manager-applet
@@ -24,12 +23,14 @@ modules:
         - qt6-qt5compat
         - qt6-qtsvg
         - qt6-qtmultimedia
+        - qt6-qtwayland-devel # Added for manual quickshell compilation
+        - qt6-qtbase-devel # Added for manual quickshell compilation
         # System Essentials
-        - nvtop 
+        - nvtop # for NVIDIA drivers
         - fastfetch
         - qalculate
         - material-symbols-fonts
-        - playerctl 
+        - playerctl # here
         - grim
         - slurp
         # Compilation Tools
@@ -42,6 +43,7 @@ modules:
         - libtool
         - fftw-devel
         - alsa-lib-devel
+        - golang # Added for manual quickshell compilation
 
   - type: default-flatpaks
     configurations:
