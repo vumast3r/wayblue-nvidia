@@ -53,6 +53,15 @@ modules:
         - pkgconf-pkg-config
         - libdrm-devel
         - mesa-libgbm-devel
+# The Final Missing Headers:
+        - pipewire-devel
+        - pulseaudio-libs-devel
+        - aubio-devel
+        - libxkbcommon-devel
+        - pam-devel
+        - NetworkManager-libnm-devel
+        - lm_sensors-devel
+        - libqalculate-devel
 
   - type: default-flatpaks
     configurations:
