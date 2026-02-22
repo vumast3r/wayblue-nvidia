@@ -1,9 +1,9 @@
 # recipes/recipe.yml
-name: wayblue-nvidia
-description: Custom Hyprland image with Caelestia Shell and NVIDIA support
+name: bazzite-hyprland-nvidia
+description: Custom Bazzite stable image with Hyprland and NVIDIA support
 
-base-image: ghcr.io/wayblueorg/hyprland-nvidia
-image-version: 43
+base-image: ghcr.io/ublue-os/bazzite-nvidia
+image-version: 41
 
 modules:
   - type: dnf
@@ -12,7 +12,11 @@ modules:
         - purian23/material-symbols-fonts
     install:
       packages:
-        # Caelestia Shell Runtime Dependencies
+        # --- 1. Hyprland Base ---
+        - hyprland
+        - xdg-desktop-portal-hyprland
+        
+        # --- 2. Caelestia Shell Runtime Dependencies ---
         - brightnessctl
         - ddcutil
         - network-manager-applet
@@ -22,7 +26,8 @@ modules:
         - qt6-qt5compat
         - qt6-qtsvg
         - qt6-qtmultimedia
-        # System Essentials
+        
+        # --- 3. System Essentials ---
         - nvtop 
         - fastfetch
         - qalculate
@@ -30,11 +35,12 @@ modules:
         - playerctl 
         - grim
         - slurp
-        # Compilation Tools & Libraries
+        
+        # --- 4. Compilation Tools & Libraries ---
         - cmake
         - ninja-build
         - gcc-c++
-        - python-pip
+        - python3-pip
         - autoconf
         - automake
         - libtool
@@ -53,7 +59,6 @@ modules:
         - pkgconf-pkg-config
         - libdrm-devel
         - mesa-libgbm-devel
-# The Final Missing Headers:
         - pipewire-devel
         - pulseaudio-libs-devel
         - aubio-devel
@@ -75,6 +80,9 @@ modules:
           - com.valvesoftware.Steam
           - org.mozilla.firefox
 
-  - type: script
-    scripts:
-      - build-caelestia.sh
+  # ---------------------------------------------------------
+  # PHASE 2: Custom Shell Build
+  # ---------------------------------------------------------
+  # - type: script
+  #   scripts:
+  #     - build-caelestia.sh
