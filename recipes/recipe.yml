@@ -43,6 +43,7 @@ modules:
         - libtool
         - fftw-devel
         - alsa-lib-devel
+        - iniparser-devel
         - golang # Added for manual quickshell compilation
 
   - type: default-flatpaks
