@@ -62,6 +62,7 @@ modules:
         - NetworkManager-libnm-devel
         - lm_sensors-devel
         - libqalculate-devel
+        - polkit-devel
 
   - type: default-flatpaks
     configurations:
