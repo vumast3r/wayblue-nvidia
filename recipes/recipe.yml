@@ -3,7 +3,7 @@ name: bazzite-hyprland-nvidia
 description: Custom Bazzite stable image with Hyprland and NVIDIA support
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia
-image-version: 41
+image-version: stable
 
 modules:
   - type: dnf
@@ -15,7 +15,7 @@ modules:
         # --- 1. Hyprland Base ---
         - hyprland
         - xdg-desktop-portal-hyprland
-        
+
         # --- 2. Caelestia Shell Runtime Dependencies ---
         - brightnessctl
         - ddcutil
@@ -26,7 +26,7 @@ modules:
         - qt6-qt5compat
         - qt6-qtsvg
         - qt6-qtmultimedia
-        
+
         # --- 3. System Essentials ---
         - nvtop 
         - fastfetch
@@ -35,7 +35,7 @@ modules:
         - playerctl 
         - grim
         - slurp
-        
+
         # --- 4. Compilation Tools & Libraries ---
         - cmake
         - ninja-build
